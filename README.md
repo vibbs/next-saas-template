@@ -46,4 +46,12 @@ Then typical setup process of:
 1. git
 2. ESLint check the `.eslintrc.json` file
 3. Prettier check the `prettierignore` and `.prettierrc` file
-4.
+4. vs code suto save and prettier application check the `.vscode\settings.json` file
+5. Debugging Scripts specifically for NextJS - check the `.vscode\launch.json` file
+6. Cross platform environmental variables - `cross-env` package
+    1. This will help things to be loaded across platform windows or mac
+
+Other things good to have would be:
+
+1. git hooks using husky
+    1. Enforce code quality standards before the code is pushed
