@@ -9,7 +9,8 @@
         "lint": "next lint",
         "pp": "prettier --write .",
         "storybook": "start-storybook -p 6006",
-        "build-storybook": "build-storybook"
+        "build-storybook": "build-storybook",
+        "gen": "plop"
     },
     "dependencies": {
         "@types/node": "18.14.6",
@@ -35,7 +36,8 @@
         "@storybook/react": "^6.5.16",
         "@storybook/testing-library": "^0.0.13",
         "babel-loader": "^8.3.0",
-        "eslint-plugin-storybook": "^0.6.11"
+        "eslint-plugin-storybook": "^0.6.11",
+        "plop": "^3.1.2"
     },
     "resolutions": {
         "webpack": "^5"

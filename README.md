@@ -127,3 +127,34 @@ Create a `base` folder inside teh `templates` folder then create the following f
     1. This can be extended further but here we are going with some bare bones
 
 When we extend this base template we will have the structure ready for a new component.
+
+> So far what we have done would be used manually, meaning we will have to copy this base template to component folder of our creation. We can use code generator using PlopJS
+
+### Templates using PlopJS
+
+Reference: https://blog.logrocket.com/automatically-generate-react-components-plop-js/
+
+`npm i --save-dev  plop`
+
+Create a config file `plopfile.js`
+Create a `templates` folder at root level.
+Create a `component` folder under `templates`
+Create the following files:
+
+1. `{{componentName}}.tsx.hbs` - Every component will have its interface defined for the props
+2. `{{componentName}}.module.css.hbs` - Compoenent specific styling, this is not needed if you are going to use the tailwind configuration later on
+3. `{{componentName}}.mocks.ts.hbs` - Mock data to just for the components which can be tested independently
+    1. Note here the mock props is called as base which would be the just one of the possiblilities but we can add more to test things out based on different use cases
+4. `{{componentName}}.stories.tsx.hbs` - hooking this component to the Storybook
+    1. This can be extended further but here we are going with some bare bones
+
+We can add more actions where this new compnent when created should be automatically added to a index file.
+Another action can be type of component then accordingly it will be placed in the right folder
+
+Will recommend Open Source libs like https://github.com/chakra-ui/chakra-ui/blob/main/plopfile.js to understand this better.
+
+Also you can create a generator for Pages, Services, Hooks and so on
+
+Notes:
+
+1. When you aer pulling the images from external sources in NextJS add those domains under the `next.config.js`
