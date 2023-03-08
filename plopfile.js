@@ -76,7 +76,7 @@ module.exports = (plop) => {
                 type: 'append',
                 path: './{{outDir}}/index.js',
                 pattern: `/* PLOP_INJECT_EXPORT */`,
-                template: `{{capitalize componentName}}, {{capitalize componentName}}Props`,
+                template: `{{capitalize componentName}}, {{capitalize componentName}}Props,`,
             });
 
             return actions;

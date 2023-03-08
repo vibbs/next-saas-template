@@ -35,7 +35,9 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 
 ---
 
-# CBS Project
+# Production Scale NextJS Project for Enterprise
+
+Building Production NextJS Project for Enterprise which can scale as you grow.
 
 ## Setup
 
@@ -154,6 +156,78 @@ Another action can be type of component then accordingly it will be placed in th
 Will recommend Open Source libs like https://github.com/chakra-ui/chakra-ui/blob/main/plopfile.js to understand this better.
 
 Also you can create a generator for Pages, Services, Hooks and so on
+
+### Layouts
+
+Typically we have following layout features so that we don't reepeat them across all the pages.
+Primary Layout will have following components
+
+1. Header
+2. SideNav - If required, as newer application rely on navigation system to be driven from header Component itslef
+3. Container
+4. Footer
+
+There can be other sub layouts which might be used with in the applications Container layer:
+
+1. Grid Layout like Youtube
+2. Split Screen Layout like markdown editor
+3. Asymmetrical Layout Like 2/3 1/3 split Sign Up pages
+4. Z- Shape Layout like landing pages with information ending with a CTA
+
+There are others but research them before adopting them, having too many styes of layout in one application will break continuity.
+
+Reference: https://xd.adobe.com/ideas/principles/web-design/11-website-layouts-that-made-content-shine-in-2019/
+
+let's create a Header and Footer component using our plop generator, I did add another command in the package.json file as shown below for DX:
+
+`"gen-c": "plop component"`
+
+Go ahead and make necessary changes in Header and footer with respective `<header>` and `<footer>` tags.
+Read the doc-string the Header and Footer component regarding what typically goes into these components.
+
+Let's create a Primary Layout component which will tie things together.
+
+If you want to apply this Primary Layout across all pages of the application then add it to the `_app.tsx` file.
+
+```tsx
+import React, { useState } from 'react';
+import { PrimaryLayout } from '../components/layouts';
+import type { AppProps } from 'next/app';
+
+function MyApp({ Component, pageProps }: AppProps) {
+    return (
+        <PrimaryLayout>
+            <Component {...pageProps} />
+        </PrimaryLayout>
+    );
+}
+
+export default MyApp;
+```
+
+Read more here: https://nextjs.org/docs/basic-features/layouts#single-shared-layout-with-custom-app
+
+If certain parts of the pages need certain types of layout based on some business logic then follow Along below:
+
+You will need to create a type for Pages to handle their layout, as per the documentation it is recommended to put this in `_app.tsx` file.
+Read more here: https://nextjs.org/docs/basic-features/layouts#per-page-layouts
+
+If need me you can define the application wide layout and override it if you have a page layout.
+
+> Note: So far we have not added any major styles as of now, we repurposed the create-next app styles from global css in our `Footer` component and for beautification added the following style for `Header` component
+
+```css
+.header {
+    display: flex;
+    flex: 1;
+    padding: 2rem 0;
+    border-bottom: 1px solid #eaeaea;
+    justify-content: center;
+    align-items: center;
+}
+```
+
+---
 
 Notes:
 

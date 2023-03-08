@@ -21,6 +21,15 @@
     align-items: center;
 }
 
+.header {
+    display: flex;
+    flex: 1;
+    padding: 2rem 0;
+    border-bottom: 1px solid #eaeaea;
+    justify-content: center;
+    align-items: center;
+}
+
 .footer a {
     display: flex;
     justify-content: center;

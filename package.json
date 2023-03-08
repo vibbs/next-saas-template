@@ -10,7 +10,8 @@
         "pp": "prettier --write .",
         "storybook": "start-storybook -p 6006",
         "build-storybook": "build-storybook",
-        "gen": "plop"
+        "gen": "plop",
+        "gen-c": "plop component"
     },
     "dependencies": {
         "@types/node": "18.14.6",
