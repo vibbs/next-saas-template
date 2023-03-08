@@ -37,8 +37,9 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 
 # CBS Project
 
-Setup we used the
+## Setup
 
+Creation
 `npx create-next-app --ts . `
 
 Then typical setup process of:
@@ -55,3 +56,51 @@ Other things good to have would be:
 
 1. git hooks using husky
     1. Enforce code quality standards before the code is pushed
+
+## Directory Structure
+
+1. `pages` - holds all the pages
+2. `components` - all the components
+3. `lib` - library for business logic domain specific things
+
+## Storybook
+
+Component showcasing and building in isolations.
+Can help in different states of a given component.
+Helps when you are implementing design system.
+
+Not used for:
+
+1. Application logic
+2. Page routing
+3. and so on
+
+`npx sb init --builder webpack5`
+
+Setup Storybook setup: ESLint check the `.eslintrc.json` file
+
+Post everything it would create two folders in your root dir `.storybook` which holds all of the configurations and `stories` where the components are showcased.
+
+modify the config `main.js` of Story book if you are putting the stories along side your components, and also specify where the static directory is for assets.
+
+```js
+module.exports = {
+    stories: ['../**/*.stories.mdx', '../**/*.stories.@(js|jsx|ts|tsx)'],
+    staticDirs: ['../public'],
+    addons: [
+        '@storybook/addon-links',
+        '@storybook/addon-essentials',
+        '@storybook/addon-interactions',
+    ],
+    framework: '@storybook/react',
+    core: {
+        builder: '@storybook/builder-webpack5',
+    },
+};
+```
+
+For the `preview.js` file special handling of `Image` compoenent from NextJS
+
+## Component Templates
+
+So that all components are craeted with same standards and consistency.
