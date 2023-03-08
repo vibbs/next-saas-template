@@ -104,3 +104,26 @@ For the `preview.js` file special handling of `Image` compoenent from NextJS
 ## Component Templates
 
 So that all components are craeted with same standards and consistency.
+
+Group similar types of components with in a folder under the `components` folder.
+
+Like:
+
+1. Utilities
+2. Forms
+3. Layouts
+4. Templates - used to build other components
+
+### Templates
+
+We will be creating a template so that all of our components that we create follow a same standard.
+Create a `base` folder inside teh `templates` folder then create the following files:
+
+1. `BaseTemplate.tsx` - Every component will have its interface defined for the props
+2. `BaseTemplate.module.css` - Compoenent specific styling
+3. `BaseTemplate.mocks.ts` - Mock data to just for the components which can be tested independently
+    1. Note here the mock props is called as base which would be the just one of the possiblilities but we can add more to test things out based on different use cases
+4. `BaseTemplate.stories.tsx` - hooking this component to the Storybook
+    1. This can be extended further but here we are going with some bare bones
+
+When we extend this base template we will have the structure ready for a new component.
