@@ -1,5 +1,3 @@
-
-
 # Production Scale NextJS Project for Enterprise
 
 Building Production NextJS Project for Enterprise which can scale as you grow.
@@ -194,8 +192,7 @@ If need me you can define the application wide layout and override it if you hav
 
 ## TailwindCSS
 
-> Note if you are not planning on using the Tailwind refer to the branch `with-css-only` and can build on top of things. 
-
+> Note if you are not planning on using the Tailwind refer to the branch `with-css-only` and can build on top of things.
 
 Leveraging Tailwind for your NextJS application here we go.
 
@@ -279,8 +276,13 @@ Normally we would target the following to be set across the application:
 Read the documentation for all possiblities:
 https://tailwindcss.com/docs/theme
 
-
 > Also, main branch I will try to keep up to date with other layers, so if you are interested till tailwindcss part then refer to branch `with-tailwind-css`
+
+## SignUp and login pages
+
+For this we will need forms, for which we will continue to build on top of the tailwindcss
+
+Install the `@tailwindcss/forms` plugin and leverage the tailwind form components to build the pages
 
 ---
 
@@ -291,7 +293,9 @@ https://tailwindcss.com/docs/theme
 ---
 
 ## Default Readme content from create next app command
+
 ---
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
