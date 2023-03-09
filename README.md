@@ -227,6 +227,78 @@ If need me you can define the application wide layout and override it if you hav
 }
 ```
 
+## TailwindCSS
+
+Leveraging Tailwind for your NextJS application here we go.
+
+### Setup
+
+https://tailwindcss.com/docs/installation/using-postcss
+
+`npm i --save-dev tailwindcss postcss autoprefixer`
+
+autoprefixer - helps in browser support like `web-kit`
+
+Initialize the tailwindcss by `npx tailwindcss init -p`
+
+Create a file at root level of the project: `tailwind.config.js` if not created by above step.
+
+We want tailwind to look at certain file in our project to apply the styles. Also, since we have mentioned specific sizes break point in our storybook settings `.storybook/preview.js` it would be good idea to configure the tailwind also in the similar manner.
+
+Check the final file details in `tailwind.config.js`
+
+Test Things out by applying some tailwind styles to any one of your component and check the outcome.
+
+### Setup for Storybook
+
+`npm i --save-dev @storybook/addon-links`
+
+You might have to add the below addtional addons if the tailwindCSS styles are not working in StoryBook
+
+```js
+{
+            /**
+             * Fix Storybook issue with PostCSS@8
+             * @see https://github.com/storybookjs/storybook/issues/12668#issuecomment-773958085
+             */
+            name: '@storybook/addon-postcss',
+            options: {
+                postcssLoaderOptions: {
+                    implementation: require('postcss'),
+                },
+            },
+        },
+```
+
+Solution for tailwind to work with storybook is to add the following line in the storybook preview.js file
+`import '!style-loader!css-loader!postcss-loader!tailwindcss/tailwind.css';`
+This solution works for TailwindCSS version and Storybook Version:
+
+```json
+{
+    "@storybook/addon-actions": "^6.5.16",
+    "@storybook/addon-essentials": "^6.5.16",
+    "@storybook/addon-interactions": "^6.5.16",
+    "@storybook/addon-links": "^6.5.16",
+    "@storybook/builder-webpack5": "^6.5.16",
+    "@storybook/manager-webpack5": "^6.5.16",
+    "@storybook/react": "^6.5.16",
+    "@storybook/testing-library": "^0.0.13",
+    "autoprefixer": "^10.4.13",
+    "babel-loader": "^8.3.0",
+    "eslint-plugin-storybook": "^0.6.11",
+    "postcss": "^8.4.21",
+    "storybook-css-modules-preset": "^1.1.1",
+    "tailwindcss": "^3.2.7"
+}
+```
+
+Read here: https://stackoverflow.com/questions/68020712/tailwind-css-classes-not-showing-in-storybook-build#:~:text=The%20above%20solutions%20will%20not%20work%20for%20Tailwind%20version%20%3E%203.0%20because%20of%20JIT%20compiler.
+
+### Themes
+
+When we want most of app to have same UI look and feel then we put application specific things in the Theme part of this config.
+
 ---
 
 Notes:

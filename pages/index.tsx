@@ -13,7 +13,14 @@ const Home: NextPageWithLayout = () => {
                 </h1>
 
                 <p className={styles.description}>
-                    Built on top of <a href="https://nextjs.org">Next.js!</a>
+                    Built on top of <a href="https://nextjs.org">Next.js!</a>{' '}
+                    and{' '}
+                    <a
+                        href="https://tailwindcss.com/"
+                        className="text-blue-400"
+                    >
+                        TailwindCSS
+                    </a>
                 </p>
 
                 <div className={styles.grid}>

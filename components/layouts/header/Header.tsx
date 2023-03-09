@@ -7,7 +7,6 @@ Typically this should hold the following entities:
 3. Navigation links to other pages on you website
 */
 import Head from 'next/head';
-import styles from '../../../styles/Home.module.css';
 
 export interface HeaderProps {
     sampleTextProp?: string;
@@ -15,7 +14,7 @@ export interface HeaderProps {
 
 export function Header(props: HeaderProps) {
     return (
-        <header className={styles.header}>
+        <header className="m-auto w-full flex justify-center p-4 bg-blue-300">
             <Head>
                 <title>Production Scale NextJS Project for Enterprise</title>
                 <meta
