@@ -299,6 +299,18 @@ Read here: https://stackoverflow.com/questions/68020712/tailwind-css-classes-not
 
 When we want most of app to have same UI look and feel then we put application specific things in the Theme part of this config.
 
+Normally we would target the following to be set across the application:
+
+1. Custom color pallate
+2. Typography
+    1. Fonts
+    2. Sizes
+    3. Color
+3. Screens - For making you application responsive
+
+Read the documentation for all possiblities:
+https://tailwindcss.com/docs/theme
+
 ---
 
 Notes:
